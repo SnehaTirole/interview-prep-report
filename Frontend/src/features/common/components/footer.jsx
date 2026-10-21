@@ -8,12 +8,9 @@ export default function Footer() {
             <div className="site-footer__inner">
                 <Link className="site-footer__brand" to="/">Interview Prep</Link>
                 <p>Prepare with purpose. Show up with confidence.</p>
-                <div className="site-footer__links">
-                    <Link to="/login">Log in</Link>
-                    <Link to="/register">Create account</Link>
-                </div>
+                
                 <span className="site-footer__copyright">
-                    © {new Date().getFullYear()} Interview Prep
+                    © {new Date().getFullYear()} InterviewPrep
                 </span>
             </div>
         </footer>

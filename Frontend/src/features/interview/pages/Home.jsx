@@ -74,14 +74,14 @@ export default function Home() {
                         Generate Interview Report
                     </button>
                 </div>
-                <div className="recent-reports">
+                <div className="recent-reports" id="reports">
                     {/* Report List */}
-                    {reports?.length > 0 && (
-                        <section className="recent-list">
+                    <section className="recent-list" aria-labelledby="recent-reports-heading">
                             <h2>My Recent Interview Plans</h2>
 
-                            <ul className="reports-list">
-                                {reports.map((report) => (
+                            {reports?.length > 0 ? (
+                                <ul className="reports-list">
+                                    {reports.map((report) => (
                                     <li
                                         key={report._id}
                                         className="report-item"
@@ -95,10 +95,12 @@ export default function Home() {
                                         </p>
                                         <p className={`matchScore`}>{report.matchScore}% Match</p>
                                     </li>
-                                ))}
-                            </ul>
-                        </section>
-                    )}
+                                    ))}
+                                </ul>
+                            ) : (
+                                <p className="reports-empty">No interview reports yet. Generate one to see it here.</p>
+                            )}
+                    </section>
                 </div>
             </main>
 

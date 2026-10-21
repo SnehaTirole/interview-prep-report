@@ -52,9 +52,12 @@
   }
 
   &__register,
+  &__home,
+  &__reports,
   &__logout {
     display: inline-flex;
-    min-height: 38px;
+    height: 38px;
+    box-sizing: border-box;
     align-items: center;
     justify-content: center;
     padding: 8px 14px;
@@ -74,6 +77,22 @@
     &:focus-visible { outline: 2px solid #ffacc7; outline-offset: 3px; }
     &:disabled { cursor: wait; opacity: 0.7; }
   }
+
+  &__home {
+    border-color: rgba(150, 169, 203, 0.3);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: none;
+    
+    &:hover { background: rgba(255, 255, 255, 0.1); }
+  }
+
+  &__reports {
+    border-color: rgba(150, 169, 203, 0.3);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: none;
+
+    &:hover { background: rgba(255, 255, 255, 0.1); }
+  }
 }
 
 @media (max-width: 520px) {
@@ -83,7 +102,7 @@
 
     &__actions { gap: 11px; }
     &__welcome { font-size: 12px; }
-    &__register, &__logout { min-height: 36px; padding-inline: 11px; }
+    &__register, &__home, &__reports, &__logout { height: 36px; padding-inline: 11px; }
   }
 }
 

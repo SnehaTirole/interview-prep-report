@@ -1,4 +1,4 @@
-const userModel = require("../models/user.model");
+﻿const userModel = require("../models/user.model");
 const blacklistTokenModel=require("../models/blacklist.model");
 
 const bcrypt = require("bcryptjs");
@@ -119,7 +119,6 @@ async function logoutUserController(req,res){
     }
 
     res.clearCookie("token");
-
     res.status(200).json({
         message:"User logged out successfully"
     })
@@ -144,6 +143,7 @@ async function getMeController(req,res){
     })
 
 }
+
 
 module.exports = {
     registerUserController,

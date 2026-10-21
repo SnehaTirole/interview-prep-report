@@ -20,6 +20,7 @@ export const useInterview = () => {
             response = await generateInterviewReport({ jobDescription, selfDescription, resumeFile })
             setReport(response.interviewReport)
         } catch (error) {
+            alert(error.response?.data?.message || "Failed to generate report. Please try again.")
             console.log(error)
         } finally {
             setLoading(false);

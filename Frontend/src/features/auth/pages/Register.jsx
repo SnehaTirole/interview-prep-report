@@ -27,7 +27,7 @@ const Register = () => {
             <div className="form-container">
                 <h1>Register</h1>
 
-                <form onClick={handleSubmit}>
+                <form onSubmit={handleSubmit}>
 
                     <div className="input-group">
                         <label htmlFor="username">Username</label>
