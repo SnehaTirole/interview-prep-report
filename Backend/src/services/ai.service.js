@@ -234,7 +234,11 @@ async function generatePdfFromHtml(htmlContent) {
         throw new Error("HTML content is empty");
     }
 
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+  headless: "new",
+  args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+  executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+});
 
     try {
         const page = await browser.newPage();
