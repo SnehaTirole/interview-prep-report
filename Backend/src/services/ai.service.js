@@ -235,10 +235,17 @@ async function generatePdfFromHtml(htmlContent) {
     }
 
     const browser = await puppeteer.launch({
+<<<<<<< HEAD
         headless: "new",
         args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
         executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
     });
+=======
+  headless: "new",
+  args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+  executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+});
+>>>>>>> fb618b81b2738a485f3b8da2ccafa0ab0da368de
 
     try {
         const page = await browser.newPage();
