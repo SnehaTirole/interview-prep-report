@@ -118,16 +118,27 @@ async function loginController(req, res) {
  * @access Public
  */
 async function logoutUserController(req,res){
-    const token=req.cookies.token;
+    try {
+        const token = req.cookies?.token;
 
-    if(token){
-        await blacklistTokenModel.create({token});   
+        if (token) {
+            await blacklistTokenModel.create({ token });
+        }
+
+        res.clearCookie("token", cookieOptions);
+
+        return res.status(200).json({
+            success: true,
+            message: "User logged out successfully"
+        });
+    } catch (error) {
+        console.error("Logout error:", error);
+
+        return res.status(500).json({
+            success: false,
+            message: "Logout failed"
+        });
     }
-
-    res.clearCookie("token", cookieOptions);
-    res.status(200).json({
-        message:"User logged out successfully"
-    })
 }
 
 /** 
