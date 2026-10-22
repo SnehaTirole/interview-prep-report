@@ -4,12 +4,13 @@ import { useAuth } from "../../auth/hooks/useAuth";
 import "../style/navbar.scss";
 
 export default function Navbar() {
-    const { user, loading, handleLogout } = useAuth();
+    const { user, loading, handleLogout,setUser } = useAuth();
     const navigate = useNavigate();
 
     const onLogout = async () => {
         try {
             await handleLogout();
+            setUser(null); // Clear the user state after logout
             navigate("/", { replace: true });
         } catch (error) {
             console.error("Could not log out:", error);
