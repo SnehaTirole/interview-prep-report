@@ -122,6 +122,12 @@ async function logoutUserController(req,res){
         const token = req.cookies?.token;
 
         if (token) {
+            // Verify the JWT and get its expiration time
+            const decoded = jwt.verify(
+                token,
+                process.env.SECRET_KEY
+            );
+            
             await blacklistTokenModel.create(
                 { token,
                     expiresAt: new Date(decoded.exp * 1000)
