@@ -1,5 +1,4 @@
 VITE_API_URL=https://ai-interview-backend-vlky.onrender.com
-
 # Logs
 logs
 *.log
