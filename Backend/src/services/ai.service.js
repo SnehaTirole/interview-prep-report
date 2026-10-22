@@ -235,10 +235,10 @@ async function generatePdfFromHtml(htmlContent) {
     }
 
     const browser = await puppeteer.launch({
-  headless: "new",
-  args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
-  executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
-});
+        headless: "new",
+        args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+    });
 
     try {
         const page = await browser.newPage();
@@ -248,10 +248,10 @@ async function generatePdfFromHtml(htmlContent) {
         await browser.close();
 
         return pdfBuffer;
-    }finally {
+    } finally {
         await browser.close();
     }
-    
+
 
 }
 
@@ -293,7 +293,7 @@ async function generateResumePdf({ resume, selfDescription, jobDescription }) {
     })
     const jsonContent = JSON.parse(reponse.text);
     const pdfBuffer = await generatePdfFromHtml(jsonContent.html);
-   
+
     return pdfBuffer;
 }
 

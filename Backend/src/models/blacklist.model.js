@@ -14,7 +14,7 @@ const blacklistTokenSchema=new mongoose.Schema({
 })
 
 // Mongo deletes the document automatically once expiresAt passes
-blacklistSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
+blacklistTokenSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
 
 const blacklistTokenModel=mongoose.model("blacklistTokens",blacklistTokenSchema);
 
