@@ -52,6 +52,24 @@ async function getInterviewReportByIdController(req, res) {
 }
 
 /**
+ * @description Controller to delete interview report by id
+ */
+async function deleteInterviewReportByIdController(req,res){
+    const {interviewId}=req.params;
+
+    const interviewReport=await interviewReportModel.findOneAndDelete({_id:interviewId,user:req.user.id})
+    if(!interviewReport){
+        return res.status(404).json({
+            message:"Interview report not found."
+        })
+    }
+
+    res.status(204).json({
+        message:"deleted successfully"
+    })
+}
+
+/**
  *  @description Controller to bget all interview of logged in user
 */
 async function getAllInterview(req, res) {
@@ -90,4 +108,4 @@ async function generateResumePdfController(req, res) {
 }
 
 
-module.exports = { generateInterviewReportController, getInterviewReportByIdController, getAllInterview, generateResumePdfController }
+module.exports = { generateInterviewReportController, getInterviewReportByIdController, getAllInterview, generateResumePdfController ,deleteInterviewReportByIdController}

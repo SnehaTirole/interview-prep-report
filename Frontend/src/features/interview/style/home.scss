@@ -1,4 +1,4 @@
-﻿.home {
+.home {
   --surface: rgba(18, 25, 40, 0.9);
   --surface-raised: #151e30;
   --surface-input: #0c1320;
@@ -306,13 +306,36 @@
     }
 
     h3 {
-      margin: 0 0 12px;
+      margin: 0 34px 12px 0;
       color: #edf2fc;
       font-size: 15px;
       font-weight: 650;
       line-height: 1.45;
       overflow-wrap: anywhere;
     }
+  }
+
+  .report-delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    padding: 0;
+    border: 1px solid rgba(242, 47, 114, 0.28);
+    border-radius: 50%;
+    background: rgba(242, 47, 114, 0.1);
+    color: #ff8eae;
+    font: inherit;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 160ms ease, color 160ms ease;
+
+    &:hover { background: #f02f72; color: #fff; }
+    &:focus-visible { outline: 2px solid #ffacc7; outline-offset: 3px; }
   }
 
   .report-date {
@@ -343,6 +366,8 @@
     .report-item { padding: 17px; }
   }
 }
+
+
 
 
 

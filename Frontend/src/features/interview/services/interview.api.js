@@ -24,6 +24,11 @@ export const getInterviewReportById = async (interviewId) => {
     return response.data;
 }
 
+export const deleteInterviewReportById = async (interviewId) => {
+    const response = await api.delete(`/api/interview/report/${interviewId}`);
+    return response.data;
+}
+
 export const getAllInterviewReports = async () => {
     const response = await api.get("/api/interview/")
     //console.log("Full API response:", response.data);
